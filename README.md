@@ -90,15 +90,15 @@ This is an example of how to list things you need to use the software and how to
    bun dev
    ```
 4. Development UI
-  ```sh
-  cd web
-  bun dev
-  ```
+   ```sh
+   cd web
+   bun dev
+   ```
 5. Development UI in Game (NUI)
-  ```sh
-  cd web
-  bun dev:game
-  ```
+   ```sh
+   cd web
+   bun dev:game
+   ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
