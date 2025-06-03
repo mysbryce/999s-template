@@ -5,7 +5,9 @@
   "private": true,
   "scripts": {
     "build": "bun build index.ts --outdir dist --target node",
-    "dev": "cross-env IS_WATCH_MODE=1 bun builder/make-bundle.js"
+    "build:obf": "cross-env USE_OBF=1 bun build index.ts --outdir dist --target node",
+    "dev": "cross-env IS_WATCH_MODE=1 bun builder/make-bundle.js",
+    "dev:obf": "cross-env USE_OBF=1 IS_WATCH_MODE=1 bun builder/make-bundle.js"
   },
   "peerDependencies": {
     "typescript": "^5.8.3"

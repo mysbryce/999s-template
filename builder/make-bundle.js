@@ -1,6 +1,7 @@
 const esbuild = require('esbuild')
 import { obfuscatorPlugin } from 'esbuild-obfuscator'
 const IS_WATCH_MODE = process.env.IS_WATCH_MODE
+const USE_OBF = process.env.USE_OBF
 
 const entries = [
     {
@@ -26,21 +27,27 @@ const makeBundle = async () => {
             minifyWhitespace: true,
             absWorkingDir: process.cwd(),
             metafile: true,
-            plugins: [
-                obfuscatorPlugin({
-                    compact: true,
-                    controlFlowFlattening: true,
-                    splitStrings: true,
-                    splitStringsChunkLength: 12,
-                    stringArray: true,
-                    stringArrayRotate: true,
-                    stringArrayShuffle: true,
-                    identifierNamesGenerator: 'hexadecimal',
-                    debugProtection: true,
-                    renameGlobals: true,
-                    numbersToExpressions: true
-                })
-            ]
+            plugins: []
+        }
+
+        if (USE_OBF) {
+            console.log('Running esbuild with obfuscator plugin')
+
+            baseOptions.plugins.push(obfuscatorPlugin({
+                compact: true,
+                controlFlowFlattening: true,
+                splitStrings: true,
+                splitStringsChunkLength: 12,
+                stringArray: true,
+                stringArrayRotate: true,
+                stringArrayShuffle: true,
+                identifierNamesGenerator: 'hexadecimal',
+                debugProtection: true,
+                renameGlobals: true,
+                numbersToExpressions: true
+            }))
+        } else {
+            console.log('Running esbuild without obfuscator plugin')
         }
 
         for (const targetOpts of entries) {
