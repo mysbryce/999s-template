@@ -1,0 +1,25 @@
+{
+  "name": "999s-template",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "bun build index.ts --outdir dist --target node",
+    "dev": "cross-env IS_WATCH_MODE=1 bun builder/make-bundle.js"
+  },
+  "peerDependencies": {
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@citizenfx/client": "^2.0.15560-1",
+    "@citizenfx/server": "^2.0.14862-1",
+    "@types/bun": "latest",
+    "@types/node": "^22.15.29",
+    "cross-env": "^7.0.3",
+    "esbuild": "^0.25.5",
+    "esbuild-obfuscator": "^0.0.7",
+    "esbuild-plugin-obfuscator": "^1.2.4",
+    "rimraf": "^6.0.1"
+  }
+}
