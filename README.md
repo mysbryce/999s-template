@@ -91,13 +91,13 @@ This is an example of how to list things you need to use the software and how to
    ```
 4. Development UI
   ```sh
-    cd web
-    bun dev
+  cd web
+  bun dev
   ```
 5. Development UI in Game (NUI)
   ```sh
-    cd web
-    bun dev:game
+  cd web
+  bun dev:game
   ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
